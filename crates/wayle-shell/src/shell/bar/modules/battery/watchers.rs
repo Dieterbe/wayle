@@ -44,7 +44,7 @@ pub(super) fn spawn_watchers(
             let state = device.state.get();
             let is_present = device.is_present.get();
 
-            let label = format_label(percentage, is_present);
+            let label = format_label(&config.format.get(), percentage, is_present);
             let _ = out.send(BatteryCmd::UpdateLabel(label));
 
             let level_icons_val = level_icons.get();
